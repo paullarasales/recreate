@@ -25,31 +25,38 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-   public function update(ProfileUpdateRequest $request): RedirectResponse
-{
-    $user = $request->user();
-    $data = $request->validated();
+    public function update(ProfileUpdateRequest $request): RedirectResponse
+    {
+        $user = $request->user();
+        $data = $request->validated();
+    
+        if ($request->hasFile('profile')) {
+            $request->validate([
+                'profile' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+    
+            $file = $request->file('profile');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+    
+            // Store the file in the public disk under the 'profiles' directory
+            $file->storeAs('profiles', $filename, 'public');
+    
+            // Update the user's profile with the file path or filename as needed
+            $data['profile'] = 'profiles/' . $filename;
+        }
+    
+        $user->fill($data);
+    
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+    
+        $user->save();
+    
+        return redirect()->route('profile.edit')->with('status', 'profile-updated');
+    }   
 
-    if ($request->hasFile('profile')) {
-        $filename = time() . '.' . $request->file('profile')->extension();
-
-        // Store the file using the Storage facade
-        Storage::disk('public')->putFileAs('profiles', $request->file('profile'), $filename);
-
-        // Update the user's profile with the file path or filename as needed
-        $data['profile'] = 'profiles/' . $filename;
-    }
-
-    $user->fill($data);
-
-    if ($user->isDirty('email')) {
-        $user->email_verified_at = null;
-    }
-
-    $user->save();
-
-    return Redirect::route('profile.edit')->with('status', 'profile-updated');
-}    /**
+     /**
      * Delete the user's account.
      */
     public function destroy(Request $request): RedirectResponse
