@@ -17,7 +17,7 @@ class AdminController extends Controller
             if ($usertype === "user") {
 
                 return view('dashboard');
-            } else if ($usertype === "admin") {
+            } else if ($usertype === "Admin") {
                 $users = User::all();
 
                 return view('admin.admin-panel', ['users' => $users]);
