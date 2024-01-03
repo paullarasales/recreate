@@ -16,11 +16,11 @@ class AdminController extends Controller
 
             if ($usertype === "user") {
 
-                return view('dashboard.blade.php');
+                return view('dashboard');
             } else if ($usertype === "admin") {
                 $users = User::all();
 
-                return view('admin.adminpanel', ['users' => $users]);
+                return view('admin.admin-panel', ['users' => $users]);
             }
         }
 
