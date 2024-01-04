@@ -14,6 +14,9 @@ export default {
             fontFamily: {
                 sans: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                sidebar: '#002244',
+            }
         },
     },
 
