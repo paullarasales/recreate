@@ -10,23 +10,31 @@
     <link rel="shortcut icon" href="{{ asset('images/psu.png') }}">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,500;1,600&family=Rubik+Broken+Fax&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+
+        body {
+            font-family: 'poppins', sans-serif;
+        }
+    
+    </style>
 </head>
-<body class="font-poppins antialiased">
+<body class="antialiased">
     <div class="flex h-screen">
        <!-- Sidebar -->
-        <aside class="fixed h-full w-52 bg-sidebar text-white px-2 py-4">
+        <aside class="fixed h-full w-52 bg-black text-white px-2 py-4">
             <!-- Logo -->
             <div class="flex justify-center items-center">                                            
-                <span class="text-2xl text-black font-medium antialiased">
-                    <span class="text-red-500">ResQ</span><span class="text-yellow-500">Pets</span><span class="text-red-500">.</span>
+                <span class="text-3xl text-white font-semibold antialiased">
+                    PetZone
                 </span>
             </div>
         
@@ -37,29 +45,36 @@
         </aside>
 
         <!-- Main Page -->
-        <main class="flex-1 h-screen w-full overflow-hidden p-10 ml-52">
+        <main class="flex-1 h-screen w-full overflow-hidden ml-52 p-2">
             <!-- Top bar -->
-            <nav class="bg-white-100 shadow-2xl">
+            <nav class="bg-white-100">
                 <div class="mx-auto px-2 sm:px-6 lg:px-8">
                     <div class="relative flex items-center justify-between h-16 w-90">
                         <!-- Hello welcome back message -->
-                        <div class="text-xl font-medium">
-                            <h1>Hello, {{ Auth::user()->name}}</h1>
+                        <div>
+                            <h1 class="text-xl font-semibold">Hello, {{ Auth::user()->name}}</h1>
+                            <p class="text-xs font-semibold text-gray-500">Pet Administration Hub</p>
+                        </div>
+
+                        <div class="flex w-96 bg-red-200 ml-32">
+                            <form action="">
+                                <input type="text" name="search" class="w-96 h-10" placeholder="Search">
+                            </form>
                         </div>
 
                         <!-- Settings Dropdown for User Options -->
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <div x-data="{ open: false }">
                                 <button @click="open = !open" class="inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-lg rounded-md text-black-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                    <div class="flex w-56 justify-end">
+                                    <div class="flex w-52 justify-end">
                                         <div class="flex gap-2">
                                             @if(Auth::user()->profile)
                                             <img class="w-9 h-9 rounded-full ml-2" src="{{ asset(Auth::user()->profile) }}" alt="Profile Image">
                                             @endif
-                                            {{-- <div class="flex flex-col items-start w-28">
-                                                <p class="text-gray-800">{{ Auth::user()->name }}</p>
-                                                <p class="text-gray-600">{{ Auth::user()->email }}</p>
-                                            </div> --}}
+                                            <div class="flex flex-col items-center justify-center">
+                                                <p class="text-gray-800 font-medium">{{ Auth::user()->name }}</p>
+                                                {{-- <p class="text-gray-600">{{ Auth::user()->email }}</p> --}}
+                                            </div>
                                         </div>
                                         <div class="ms-1 mt-1">
                                             <svg class="fill-current h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
