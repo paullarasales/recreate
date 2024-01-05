@@ -56,51 +56,52 @@
                             <p class="text-xs font-semibold text-gray-500">Pet Administration Hub</p>
                         </div>
 
-                        <div class="flex w-96 bg-red-200 ml-32">
-                            <form action="">
-                                <input type="text" name="search" class="w-96 h-10" placeholder="Search">
-                            </form>
-                        </div>
+                        <div class="flex items-center justify-end flex-row w-10/12">
+                            <div class="flex w-96 bg-red-200 ml-48">
+                                <form action="">
+                                    <input type="text" name="search" class="w-96 h-10" placeholder="Search">
+                                </form>
+                            </div>
 
-                        <!-- Settings Dropdown for User Options -->
-                        <div class="hidden sm:flex sm:items-center sm:ms-6">
-                            <div x-data="{ open: false }">
-                                <button @click="open = !open" class="inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-lg rounded-md text-black-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                    <div class="flex w-52 justify-end">
-                                        <div class="flex gap-2">
-                                            @if(Auth::user()->profile)
-                                            <img class="w-9 h-9 rounded-full ml-2" src="{{ asset(Auth::user()->profile) }}" alt="Profile Image">
-                                            @endif
-                                            <div class="flex flex-col items-center justify-center">
-                                                <p class="text-gray-800 font-medium">{{ Auth::user()->name }}</p>
-                                                {{-- <p class="text-gray-600">{{ Auth::user()->email }}</p> --}}
+                            <!-- Settings Dropdown for User Options -->
+                            <div class="hidden sm:flex sm:items-center sm:ms-6">
+                                <div x-data="{ open: false }">
+                                    <button @click="open = !open" class="inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-lg rounded-md text-black-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                        <div class="flex w-40 justify-end">
+                                            <div class="flex gap-2">
+                                                @if(Auth::user()->profile)
+                                                <img class="w-9 h-9 rounded-full ml-2" src="{{ asset(Auth::user()->profile) }}" alt="Profile Image">
+                                                @endif
+                                                <div class="flex flex-col items-center justify-center">
+                                                    <p class="text-gray-800 font-medium">{{ Auth::user()->name }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="ms-1 mt-1">
+                                                <svg class="fill-current h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
                                             </div>
                                         </div>
-                                        <div class="ms-1 mt-1">
-                                            <svg class="fill-current h-7 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </button>
-            
-                                <div x-show="open" @click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                                    <div class="py-1">
-                                        <!-- Add other options like "Edit Profile" here -->
-                                        <x-dropdown-link :href="route('profile.edit')">
-                                            {{ __('Edit Profile') }}
-                                        </x-dropdown-link>
-            
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-            
-                                            <x-dropdown-link :href="route('logout')"
-                                                    onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
-                                                {{ __('Log Out') }}
+                                    </button>
+                
+                                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                                        <div class="py-1">
+                                            <!-- Add other options like "Edit Profile" here -->
+                                            <x-dropdown-link :href="route('profile.edit')">
+                                                {{ __('Edit Profile') }}
                                             </x-dropdown-link>
-                                        </form>
+                
+                                            <!-- Authentication -->
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                
+                                                <x-dropdown-link :href="route('logout')"
+                                                        onclick="event.preventDefault();
+                                                                    this.closest('form').submit();">
+                                                    {{ __('Log Out') }}
+                                                </x-dropdown-link>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
