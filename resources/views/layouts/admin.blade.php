@@ -51,23 +51,34 @@
                 <div class="mx-auto px-2 sm:px-6 lg:px-8">
                     <div class="relative flex items-center justify-between h-16 w-90">
                         <!-- Hello welcome back message -->
-                        <div>
+                        <div class="flex flex-col w-7/12">
                             <h1 class="text-xl font-semibold">Hello, {{ Auth::user()->name}}</h1>
-                            <p class="text-xs font-semibold text-gray-500">Pet Administration Hub</p>
+                            <p class="text-xs font-semibold text-gray-500">Explore and manage pet in here.</p>
                         </div>
 
-                        <div class="flex items-center justify-end flex-row w-10/12">
-                            <div class="flex w-96 bg-red-200 ml-48">
-                                <form action="">
-                                    <input type="text" name="search" class="w-96 h-10" placeholder="Search">
+                        <div class="flex items-center justify-evenly flex-row w-9/12">
+                            <div class="flex w-96 ml-48">
+                                <form action="" class="relative">
+                                    <input type="text" name="search" class="outline-none border-white shadow w-96 h-10 pr-2 pl-8 rounded-md" placeholder="Search">
+                                    <svg class="absolute left-3 top-3 h-4 w-4 text-gray-500 font-medium" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.2-5.2"/>
+                                        <circle cx="10" cy="10" r="8"/>
+                                    </svg>
                                 </form>
+                            </div>
+
+                            <!-- Notification -->
+                            <div class="flex items-center justify-center w-6 ml-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
+                                  </svg>
                             </div>
 
                             <!-- Settings Dropdown for User Options -->
                             <div class="hidden sm:flex sm:items-center sm:ms-6">
                                 <div x-data="{ open: false }">
                                     <button @click="open = !open" class="inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-lg rounded-md text-black-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <div class="flex w-40 justify-end">
+                                        <div class="flex w-48">
                                             <div class="flex gap-2">
                                                 @if(Auth::user()->profile)
                                                 <img class="w-9 h-9 rounded-full ml-2" src="{{ asset(Auth::user()->profile) }}" alt="Profile Image">
