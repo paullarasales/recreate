@@ -23,10 +23,13 @@
                     <h1 class="text-4xl font-semibold mt-4">
                         Log in
                     </h1>
+                    <h3 class="text-medium font-medium mt-2 mb-5">
+                        Welcome back! Please enter your credentials below to access your account.
+                    </h3>
 
                     <!-- Email Address -->
                     <x-input-label for="email" :value="__('Email')" />
-                    <x-text-input id="email" class="outline-none border-white shadow w-96" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Enter your email" />
+                    <x-text-input id="email" class="outline-none border-white shadow w-96 mb-4" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Enter your email" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
                     <!-- Password -->

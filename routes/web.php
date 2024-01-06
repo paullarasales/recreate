@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [AdminController::class, 'homepage'])->name('home');
+Route::get('/news', [AdminController::class, 'newsupdate'])->name('news');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
