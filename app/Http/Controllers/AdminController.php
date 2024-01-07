@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use Illuminate\View\View;
 
 class AdminController extends Controller
 {
@@ -45,7 +46,11 @@ class AdminController extends Controller
         return view('admin.messages');
     }
 
-    
+    public function editProfile(Request $request): View {
 
+        return view('admin.edit-profile', [
+            'user' => $request->user(),
+        ]);
+    }
 
 }

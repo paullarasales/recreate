@@ -34,6 +34,9 @@ Route::get('/notifications', [AdminController::class, 'notifications'])
 Route::get('/messages', [AdminController::class, 'messages'])
 ->name('message');
 
+Route::get('/edit', [AdminController::class, 'editProfile'])
+->name('edit');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

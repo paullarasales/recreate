@@ -56,8 +56,8 @@
                 
                     <!-- User -->
                     <div class="{{ request()->routeIs('user') ? 'bg-violet-700' : ''}} flex justify-start items-center w-44 rounded-md p-1 h-9">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#999C9A" class="w-6 h-6 mr-2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#999C9A" class="w-6 h-6 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                         </svg>                                                                                                                             
                         <x-side-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')" class="text-lg font-medium mt-1">
                             {{ __('User')}}
@@ -71,6 +71,16 @@
                         </svg>                                                                                                        
                         <x-side-nav-link href="{{ route('pets') }}" :active="request()->routeIs('pets')" class="text-lg font-medium mt-1">
                             {{ __('Manage Pets')}}
+                        </x-side-nav-link>
+                    </div>
+
+                    <!-- Profile -->
+                    <div class="{{ request()->routeIs('edit') ? 'bg-violet-700' : ''}} flex justify-start items-center w-44 rounded-md p-1 h-9">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#999C9A" class="w-6 h-6 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>                                                                                                                                                
+                        <x-side-nav-link href="{{ route('edit') }}" :active="request()->routeIs('edit')" class="text-lg font-medium mt-1">
+                            {{ __('Edit Profile')}}
                         </x-side-nav-link>
                     </div>
 
@@ -97,24 +107,25 @@
             </div>
             
             <div class="flex justify-start items-center w-8/12">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <div class="flex flex-row items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="ml-4">
-                            <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                                <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2"/>
-                                <path d="M9 12h12l-3-3m0 6l3-3"/>
-                            </g>
-                        </svg>
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-dropdown-link>
-                    </div>
-                </form>
-            </div>            
-            
+                <div class="flex flex-col w-full justify-between">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <div class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="ml-4">
+                                <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2"/>
+                                    <path d="M9 12h12l-3-3m0 6l3-3"/>
+                                </g>
+                            </svg>
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </aside>
 
         <!-- Main Page -->
@@ -171,7 +182,7 @@
                                     <div x-show="open" @click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                                         <div class="py-1">
                                             <!-- Add other options like "Edit Profile" here -->
-                                            <x-dropdown-link :href="route('profile.edit')">
+                                            <x-dropdown-link :href="route('edit')">
                                                 {{ __('Edit Profile') }}
                                             </x-dropdown-link>
                 
