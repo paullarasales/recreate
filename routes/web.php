@@ -21,8 +21,18 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [AdminController::class, 'homepage'])
 ->name('home');
-Route::get('/news', [AdminController::class, 'newsupdate'])
-->name('news');
+
+Route::get('/news', [AdminController::class, 'users'])
+->name('user');
+
+Route::get('/manage', [AdminController::class, 'managepets'])
+->name('pets');
+
+Route::get('/notifications', [AdminController::class, 'notifications'])
+->name('notification');
+
+Route::get('/messages', [AdminController::class, 'messages'])
+->name('message');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -20,15 +20,29 @@ class AdminController extends Controller
             } else if ($usertype === "Admin") {
                 $users = User::all();
 
-                return view('admin.admin-panel', ['users' => $users]);
+                return view('admin.update-news', ['users' => $users]);
             }
         }
 
         return redirect()->route('login');
     }
 
-    public function newsupdate() {
-        return view('admin.update-news');
+    public function users() {
+        $users = User::all();
+
+        return view('admin.admin-panel', ['users' => $users]);
+    }
+
+    public function managepets() {
+        return view('admin.manage-pets');
+    }
+
+    public function notifications() {
+        return view('admin.notification');
+    }
+
+    public function messages() {
+        return view('admin.messages');
     }
 
     
