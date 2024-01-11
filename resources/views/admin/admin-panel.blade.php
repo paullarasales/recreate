@@ -9,16 +9,20 @@
              <table class="w-full border-collapse">
                      <thead class="bg-gray-50 border-b-2 border-gray-200">
                          <tr>
-                             <th class="p-3 text-lg font-semibold tracking-wide text-left">Name</th>
-                             <th class="p-3 text-lg font-semibold tracking-wide text-left">User Type</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide text-left">First Name</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide text-left">Last Name</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide text-left">User Name</th>
+                            <th class="p-3 text-lg font-semibold tracking-wide text-left">User Type</th>
                          </tr>
                      </thead>
                  <tbody>
                      <!-- Loop through events and display them -->
                      @foreach ($users as $user)
                          <tr>
-                             <td class="p-3 text-md text-gray-700">{{ $user->name }}</td>
-                             <td class="p-3 text-md text-gray-700">{{ $user->usertype }}</td>
+                            <td class="p-3 text-md text-gray-700">{{ $user->firstname }}</td>
+                            <td class="p-3 text-md text-gray-700">{{ $user->lastname }}</td>
+                            <td class="p-3 text-md text-gray-700">{{ $user->name }}</td>
+                            <td class="p-3 text-md text-gray-700">{{ $user->usertype }}</td>
                          </tr>
                      @endforeach
                  </tbody>
@@ -27,6 +31,6 @@
              <p>No users found.</p>
          @endif
         </div>
-           
+
     </div>
 </x-admin-layout>
