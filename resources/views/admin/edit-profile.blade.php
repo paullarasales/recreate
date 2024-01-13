@@ -1,9 +1,9 @@
 <x-admin-layout>
     <div class="flex flex-row justify-start ml-10 items-center w-full h-screen">
         <!-- Content -->
-        <div class="flex flex-col w-full h-5/6 bg-white border-white shadow-md rounded-md" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+        <div class="flex flex-col w-full h-5/6">
              <!-- Top -->
-            <div class="flex flex-col w-full px-2 py-2 ml-3">
+            <div class="flex flex-col w-full ml-3">
                 <h1 class="text-2xl font-semibold">
                     Account Information
                 </h1>
@@ -21,8 +21,8 @@
                         <div class="flex items-center justify-start gap-2">
                             <div>
                                 @if(Auth::user()->profile)
-                            <img class="w-20 h-20 rounded-full ml-2" src="{{ asset(Auth::user()->profile) }}" alt="Profile Image">
-                            @endif
+                                    <img class="w-20 h-20 rounded-full ml-2" src="{{ asset(Auth::user()->profile) }}" alt="Profile Image">
+                                @endif
                             </div>
                             <div class="mt-10">
                                 <x-file-input />

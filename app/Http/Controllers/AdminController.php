@@ -19,9 +19,9 @@ class AdminController extends Controller
 
                 return view('dashboard');
             } else if ($usertype === "Admin") {
-                $users = User::all();
+                $userCount = User::count();
 
-                return view('admin.update-news', ['users' => $users]);
+                return view('admin.update-news', ['userCount' => $userCount]);
             }
         }
 

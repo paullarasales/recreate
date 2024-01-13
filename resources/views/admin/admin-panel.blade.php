@@ -9,16 +9,18 @@
              <table class="w-full border-collapse">
                      <thead class="bg-gray-50 border-b-2 border-gray-200">
                          <tr>
+                            <th class="p-3 text-lg font-semibold tracking-wide text-left">id</th>
                             <th class="p-3 text-lg font-semibold tracking-wide text-left">First Name</th>
                             <th class="p-3 text-lg font-semibold tracking-wide text-left">Last Name</th>
                             <th class="p-3 text-lg font-semibold tracking-wide text-left">User Name</th>
                             <th class="p-3 text-lg font-semibold tracking-wide text-left">User Type</th>
                          </tr>
                      </thead>
-                 <tbody>
+                 <tbody class="bg-gray-50 border-b-2 border-gray-200">
                      <!-- Loop through events and display them -->
                      @foreach ($users as $user)
                          <tr>
+                            <td class="p-3 text-md text-gray-700">#{{ $user->id }}</td>
                             <td class="p-3 text-md text-gray-700">{{ $user->firstname }}</td>
                             <td class="p-3 text-md text-gray-700">{{ $user->lastname }}</td>
                             <td class="p-3 text-md text-gray-700">{{ $user->name }}</td>
