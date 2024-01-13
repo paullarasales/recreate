@@ -34,7 +34,7 @@
             <!-- Top -->
             <div class="flex flex-row items-center justify-evenly h-1/2 w-full">
                 <!-- Left -->
-                <div class="flex flex-col w-5/12 h-full bg-white border-white shadow-md rounded-md" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
+                <div class="flex flex-col justify-between w-5/12 h-full bg-white border-white shadow-md rounded-md" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">
                     <!-- Top -->
                     <div class="flex flex-row items-center w-3/5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -45,10 +45,14 @@
                         </h1>
                     </div>
 
-                    <div class="flex w-2/5 h-full items-center p-2 ml-5">
+                    <div class="flex w-2/5 h-2/5 items-center ml-3 p-2">
                         <h1 class="text-6xl font-semibold">
                             {{ $userCount }}
                         </h1>
+                    </div>
+
+                    <div class="flex items-center justify-center w-full h-2/5">
+
                     </div>
                 </div>
                 <!-- Right -->

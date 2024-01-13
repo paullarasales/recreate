@@ -1,4 +1,3 @@
--- Active: 1701141773993@@127.0.0.1@3306@upload
 <?php
 
 use Illuminate\Database\Migrations\Migration;
