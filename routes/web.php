@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,27 +21,38 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [AdminController::class, 'homepage'])
+->middleware('auth')
 ->name('home');
 
-Route::get('/news', [AdminController::class, 'users'])
-->name('user');
-
-Route::get('/manage', [AdminController::class, 'managepets'])
-->name('pets');
-
-Route::get('/notifications', [AdminController::class, 'notifications'])
-->name('notification');
-
-Route::get('/messages', [AdminController::class, 'messages'])
-->name('message');
-
-Route::get('/edit', [AdminController::class, 'editProfile'])
-->name('edit');
+//Admin Middleware
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    Route::get('/news', [AdminController::class, 'users'])
+    ->name('user');
+    
+    Route::get('/manage', [AdminController::class, 'managepets'])
+    ->name('pets');
+    
+    Route::get('/pets', [AdminController::class, 'viewList'])
+    ->name('pet.list');
+    
+    Route::get('/notifications', [AdminController::class, 'notifications'])
+    ->name('notification');
+    
+    Route::get('/messages', [AdminController::class, 'messages'])
+    ->name('message');
+    
+    Route::get('/edit', [AdminController::class, 'editProfile'])
+    ->name('edit');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::match(['get', 'post'], '/add/pets', [PetController::class, 'store'])
+->name('add.pet');
 
 require __DIR__.'/auth.php';

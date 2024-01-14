@@ -16,6 +16,7 @@ class Pet extends Model
         'age',
         'weight',
         'gender',
-        'photo'
+        'photo',
+        'summary'
     ];
 }

@@ -74,6 +74,17 @@
                         </x-side-nav-link>
                     </div>
 
+                    <!-- Pet Listing -->
+                    <div class="{{ request()->routeIs('pet.list') ? 'bg-violet-700' : ''}} flex justify-start items-center w-44 rounded-md p-1 h-9">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#999C9A" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25" />
+                        </svg>
+                                                                                                                                  
+                        <x-side-nav-link href="{{ route('pet.list') }}" :active="request()->routeIs('pet.list')" class="text-lg font-medium mt-1">
+                            {{ __('Pet Listing')}}
+                        </x-side-nav-link>
+                    </div>
+
                     <!-- Profile -->
                     <div class="{{ request()->routeIs('edit') ? 'bg-violet-700' : ''}} flex justify-start items-center w-44 rounded-md p-1 h-9">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#999C9A" class="w-6 h-6 mr-2">

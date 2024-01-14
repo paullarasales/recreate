@@ -34,23 +34,33 @@ class AdminController extends Controller
         return view('admin.admin-panel', ['users' => $users]);
     }
 
+    //Manage Pets
     public function managepets() {
         return view('admin.manage-pets');
     }
 
+    //Pet Listing
+    public function viewLIst() {
+        return view('admin.pet-listing');
+    }
+
+    //Notification
     public function notifications() {
         return view('admin.notification');
     }
 
+    //Messages
     public function messages() {
         return view('admin.messages');
     }
 
+    //Edit Admin Profile
     public function editProfile(Request $request): View {
 
         return view('admin.edit-profile', [
             'user' => $request->user(),
         ]);
     }
+
 
 }
