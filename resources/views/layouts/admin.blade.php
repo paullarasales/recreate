@@ -80,7 +80,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25" />
                         </svg>
                                                                                                                                   
-                        <x-side-nav-link href="{{ route('pet.list') }}" :active="request()->routeIs('pet.list')" class="text-lg font-medium mt-1">
+                        <x-side-nav-link href="{{ route('pet.list') }}" :active="request()->routeIs('pet.list')" class="text-lg font-medium mt-1 ml-2">
                             {{ __('Pet Listing')}}
                         </x-side-nav-link>
                     </div>
@@ -216,7 +216,7 @@
                 </div>
             </nav>
             
-            <div class="ml-auto mr-auto w-full h-fullp-4">
+            <div class="ml-auto mr-auto w-full h-full p-4">
                 {{ $slot }}
             </div>            
         </main>

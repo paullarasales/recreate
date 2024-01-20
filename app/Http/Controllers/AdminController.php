@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use App\Models\Pet;
 use Illuminate\View\View;
 
 class AdminController extends Controller
@@ -41,7 +42,8 @@ class AdminController extends Controller
 
     //Pet Listing
     public function viewLIst() {
-        return view('admin.pet-listing');
+        $pets = Pet::all();
+        return view('admin.pet-listing', ['pets' => $pets]);
     }
 
     //Notification

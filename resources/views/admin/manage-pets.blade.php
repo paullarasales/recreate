@@ -89,7 +89,7 @@
                                 <div>
                                     <!-- Summary -->
                                     <x-input-label for="summary" :value="__('Summary')" />
-                                    <x-text-input id="summary" class="outline-border bg-white border-blue shadow-md w-96" type="text" name="summary" :value="old('summary')" required autofocus autocomplete="summary" placeholder="About The Pet"/>
+                                    <x-text-input id="summary" class="outline-border bg-white border-blue shadow-md w-96 " type="text" name="summary" :value="old('summary')" required autofocus autocomplete="summary" placeholder="About The Pet"/>
                                     <x-input-error :messages="$errors->get('summary')" class="mt-2" />
                                 </div>
 
