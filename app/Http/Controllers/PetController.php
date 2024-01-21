@@ -28,6 +28,6 @@ class PetController extends Controller
 
         $pet->save();
 
-        return redirect()->route('pets')->with('status', 'successfully added');
+        return redirect()->route('pet.list')->with('status', 'successfully added');
     }
 }
