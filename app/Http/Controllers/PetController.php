@@ -30,4 +30,15 @@ class PetController extends Controller
 
         return redirect()->route('pet.list')->with('status', 'successfully added');
     }
+
+    public function destroy($petId) {
+        $pet = Pet::find($petId);
+
+        if ($pet) {
+            $pet->delete();
+            return redirect()->route('pet.list')->with('success', 'Pet Deleted Successfully');
+        } else {
+            return redirect()->route('pet.list')->with('error', 'Pet Not Found');
+        }
+    }
 }

@@ -55,4 +55,6 @@ Route::middleware('auth')->group(function () {
 Route::match(['get', 'post'], '/add/pets', [PetController::class, 'store'])
 ->name('add.pet');
 
+Route::delete('/delete/{pet}', [PetController::class, 'destroy'])->name('pet.delete');
+
 require __DIR__.'/auth.php';
