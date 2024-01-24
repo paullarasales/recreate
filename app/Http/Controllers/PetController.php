@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginatable;
 use App\Models\Pet;
 
 class PetController extends Controller

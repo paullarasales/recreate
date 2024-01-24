@@ -9,14 +9,6 @@
                 </h1>
             </div>
 
-            <!-- Date -->
-            <div class="flex flex-row items-center w-4/12 h-full justify-between">
-                <button class="font-medium">Today</button>
-                <button class="font-medium">Week</button>
-                <button class="font-medium">Month</button>
-                <button class="font-medium">Year</button>
-            </div>
-
             <!-- Todays date -->
             <div class="flex flex-row items-center justify-center h-full gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
@@ -39,20 +31,25 @@
                     <div class="flex flex-row items-center w-3/5">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-                        </svg>                          
+                        </svg>
                         <h1 class="text-lg font-semibold">
                             Registered Users
                         </h1>
                     </div>
 
-                    <div class="flex w-2/5 h-2/5 items-center ml-3 p-2">
-                        <h1 class="text-6xl font-semibold">
+                    <div class="flex flex-row w-2/5 h-5/6 items-center justify-center gap-2">
+                        <h1 class="text-6xl font-semibold text-red-500">
                             {{ $userCount }}
                         </h1>
+                        <p class="text-2xl font-medium mt-5">
+                            {{ __('Users') }}
+                        </p>
                     </div>
 
                     <div class="flex items-center justify-center w-full h-2/5">
-
+                        <x-side-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')" class="text-xl font-medium mt-1">
+                            {{ __('View All')}}
+                        </x-side-nav-link>
                     </div>
                 </div>
                 <!-- Right -->

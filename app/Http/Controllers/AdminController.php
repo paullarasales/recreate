@@ -12,7 +12,7 @@ use Illuminate\View\View;
 class AdminController extends Controller
 {
     public function homepage() {
-        
+
         if (Auth::check()) {
             $usertype = Auth()->user()->usertype;
 
@@ -42,7 +42,7 @@ class AdminController extends Controller
 
     //Pet Listing
     public function viewLIst() {
-        $pets = Pet::all();
+        $pets = Pet::paginate(8);
         return view('admin.pet-listing', ['pets' => $pets]);
     }
 

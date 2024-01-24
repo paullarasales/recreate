@@ -19,6 +19,9 @@
                         </form>
                    </div>
                 @endforeach
+                <div class="flex items-center justify-center h-10 w-full mb-56 gap-2">
+                    {{ $pets->links() }}
+                </div>
             @else
                 <p class="text-xl font-semibold">
                     No Pets Found. Please add a new Pet to continue.
