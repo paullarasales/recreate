@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Session;
 
 class LoginRequest extends FormRequest
 {
@@ -49,6 +50,7 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        //Get the authenticated user
         RateLimiter::clear($this->throttleKey());
     }
 

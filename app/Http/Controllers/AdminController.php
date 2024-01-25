@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 use App\Models\User;
 use App\Models\Pet;
@@ -14,7 +15,8 @@ class AdminController extends Controller
     public function homepage() {
 
         if (Auth::check()) {
-            $usertype = Auth()->user()->usertype;
+
+            $usertype = (Auth()->user()->usertype);
 
             if ($usertype === "user") {
 
@@ -42,7 +44,7 @@ class AdminController extends Controller
 
     //Pet Listing
     public function viewLIst() {
-        $pets = Pet::paginate(8);
+        $pets = Pet::paginate(10);
         return view('admin.pet-listing', ['pets' => $pets]);
     }
 

@@ -25,7 +25,7 @@ Route::get('/dashboard', [AdminController::class, 'homepage'])
 ->name('home');
 
 //Admin Middleware
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['web', 'auth', 'admin'])->group(function () {
 
     Route::get('/news', [AdminController::class, 'users'])
     ->name('user');
@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
 });
 
 //Controller for pets
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['web','auth', 'admin'])->group(function () {
     Route::match(['get', 'post'], '/add/pets', [PetController::class, 'store'])
     ->name('add.pet');
 

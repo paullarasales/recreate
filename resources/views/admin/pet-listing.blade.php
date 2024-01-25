@@ -1,6 +1,6 @@
 <x-admin-layout>
     <div class="flex flex-col items-center justify-center h-screen p-6">
-        <div class="flex flex-wrap justify-center w-full h-full gap-5">
+        <div class="flex items-center flex-wrap justify-center w-full h-full gap-5">
             @if($pets && count($pets) > 0)
                 @foreach($pets as $pet)
                    <div class="flex items-center justify-center flex-col h-60" style="box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;">
