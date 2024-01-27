@@ -6,6 +6,18 @@
         function updateLabel() {
         var fileName = document.getElementById("profile").files[0]?.name || 'No file chosen';
         document.getElementById("fileName").innerText = fileName;
+        
+        if (fileName.files && fileName.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('hidden');
+            }
+
+            reader.readAsDataUrl(fileName.files[0]);
+        }
+       
     }
     </script>
 </div>
