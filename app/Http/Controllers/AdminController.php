@@ -17,12 +17,16 @@ class AdminController extends Controller
             $usertype = (Auth()->user()->usertype);
 
             if ($usertype === "user") {
+                
+                $pets = Pet::all();
 
-                return view('dashboard');
+                return view('user.landing-page', ['pets' => $pets]);
             } else if ($usertype === "Admin") {
                 $userCount = User::count();
 
                 return view('admin.update-news', ['userCount' => $userCount]);
+            } else {
+                return view('landing-page');
             }
         }
 
