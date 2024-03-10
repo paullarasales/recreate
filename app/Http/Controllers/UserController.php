@@ -22,7 +22,6 @@ class UserController extends Controller
         $userId = Auth::id();
         $cart = Cart::firstOrCreate(['user_id' => $userId]);
 
-        // Assuming you want to pass the cart items to the view
         $cartItems = $cart->items;
 
         if ($cartItems->contains('pet_id', $petId)) {
