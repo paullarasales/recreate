@@ -17,10 +17,9 @@ class AdminController extends Controller
             $usertype = (Auth()->user()->usertype);
 
             if ($usertype === "user") {
-                
-                $pets = Pet::all();
+                $pets = Pet::paginate(5);
 
-                return view('user.landing-page', ['pets' => $pets]);
+                return view('user.main-user', compact('pets'));
             } else if ($usertype === "Admin") {
                 $userCount = User::count();
 

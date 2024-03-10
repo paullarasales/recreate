@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,12 @@ Route::middleware(['web','auth', 'admin'])->group(function () {
     Route::delete('/delete/{pet}', [PetController::class, 'destroy'])
     ->name('pet.delete');
 });
+
+Route::get('/add-to-cart', [UserController::class, 'addToCartPage'])->name('cart');
+Route::match(['get', 'post'],'/add-to-cart/{petId}', [UserController::class, 'addToCart'])->name('add-to-cart');
+
+
+
 
 
 require __DIR__.'/auth.php';
