@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-use App\Models\CartItem;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -33,7 +32,6 @@ class UserController extends Controller
                 'quantity' => 1,
             ]);
 
-            // Fetch the updated cart items
             $cartItems = $cart->items;
 
             return redirect()->route('cart')->with('success', 'Pet added to cart successfully.');

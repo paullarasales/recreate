@@ -34,11 +34,8 @@
             <!-- Logo -->
             <div class="flex flex-col justif-evenly items-center w-full">
                 <div class="flex justify-start w-full p-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="height: 2rem; width: 2rem;" viewBox="0 0 50 50">
-                        <path fill="#000000" d="M18.48 18.875c2.33-.396 4.058-2.518 4.321-5.053c.267-2.578.869-12.938-3.02-12.279c-10.088 1.711-9.38 18.702-1.301 17.332m13.273 0c8.077 1.37 8.785-15.621-1.303-17.333c-3.888-.659-3.287 9.701-3.021 12.279c.264 2.536 1.994 4.658 4.324 5.054M14.336 26.88c0-1.348-.481-2.57-1.256-3.459c-1.275-1.666-5.328-5.035-6.323-4.172c-2.077 1.806-2.01 6.251-.759 9.481c.643 1.796 2.196 3.059 4.011 3.059c2.389 0 4.327-2.198 4.327-4.909m29.137-7.631c-.993-.863-5.046 2.506-6.321 4.172c-.775.889-1.257 2.111-1.257 3.459c0 2.711 1.94 4.909 4.327 4.909c1.816 0 3.37-1.263 4.013-3.059c1.248-3.23 1.317-7.675-.762-9.481m-8.136 15.277c-3.676-1.833-3.562-5.363-4.398-8.584c-.665-2.569-3.02-4.469-5.823-4.469a6.007 6.007 0 0 0-5.779 4.312c-.895 3.082-.356 6.67-4.363 8.717c-3.255 1.061-4.573 2.609-4.573 6.27c0 2.974 2.553 6.158 5.848 6.554c3.676.554 6.544-.17 8.867-1.494c2.323 1.324 5.189 2.047 8.871 1.494c3.293-.396 5.847-3.568 5.847-6.554c-.001-3.741-1.235-5.135-4.497-6.246M31 39h-3.811l.005 4h-4.156l.006-4H19v-4h4.045l-.006-4h4.156l-.005 4H31z"/>
-                    </svg>
                     <h1 class="text-4xl text-black font-semibold">
-                        PetZone
+                        Capstone
                     </h1>
                 </div>
 
@@ -50,7 +47,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                         </svg>
                         <x-side-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="text-lg font-medium mt-1 flex items-center">
-                            {{ __('Overview')}}
+                            {{ __('Dashboard')}}
                         </x-side-nav-link>
                     </div>
 
@@ -70,7 +67,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                         </svg>
                         <x-side-nav-link href="{{ route('pets') }}" :active="request()->routeIs('pets')" class="text-lg font-medium mt-1">
-                            {{ __('Manage Pets')}}
+                            {{ __('Add Product')}}
                         </x-side-nav-link>
                     </div>
 
@@ -81,7 +78,7 @@
                         </svg>
 
                         <x-side-nav-link href="{{ route('pet.list') }}" :active="request()->routeIs('pet.list')" class="text-lg font-medium mt-1 ml-2">
-                            {{ __('Pet Listing')}}
+                            {{ __('Product Listing')}}
                         </x-side-nav-link>
                     </div>
 
