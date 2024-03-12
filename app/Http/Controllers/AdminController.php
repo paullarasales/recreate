@@ -24,8 +24,6 @@ class AdminController extends Controller
                 $userCount = User::count();
 
                 return view('admin.update-news', ['userCount' => $userCount]);
-            } else {
-                return view('landing-page');
             }
         }
 

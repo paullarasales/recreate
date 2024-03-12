@@ -21,6 +21,10 @@
                         Sign up
                     </h1>
 
+                    <x-input-label for="fullname" :value="__('Full Name')" />
+                    <x-text-input id="fullname" class="outline-border border-white shadow w-96" type="text" name="fullname" :value="old('fulllname')" autofocus autocomplete="fullname" />
+                    <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
+
                     <!-- Name -->
                     <x-input-label for="name" :value="__('Name')" />
                     <x-text-input id="name" class="outline-border border-white shadow w-96" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />

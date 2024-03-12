@@ -30,6 +30,12 @@
                         </div>
     
                         <div class="flex flex-row w-11/12 justify-between gap-4 items-center">
+
+                            <div class="mb-2"> <!-- Add margin-bottom here -->
+                                <x-input-label for="fullname" :value="__('Full Name')" />
+                                <x-text-input id="fullname" name="fullname" type="text" class="mt-1 block w-full" :value="old('fullname', $user->fullname)" autofocus autocomplete="fullname" />
+                                <x-input-error class="mt-2" :messages="$errors->get('fullname')" />
+                            </div>
                         
                             <div class="mb-2"> <!-- Add margin-bottom here -->
                                 <x-input-label for="name" :value="__('User Name')" />

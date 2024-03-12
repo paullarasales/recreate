@@ -145,7 +145,7 @@
                         <!-- Hello welcome back message -->
                         <div class="flex flex-col w-7/12">
                             <h1 class="text-2xl font-semibold">Hello, {{ Auth::user()->usertype}}</h1>
-                            <p class="text-sm font-medium text-gray-500">Explore and manage pet in here.</p>
+                            <p class="text-sm font-medium text-gray-500">Explore and manage your product here.</p>
                         </div>
 
                         <div class="flex items-center justify-between flex-row w-6/12">

@@ -23,8 +23,9 @@
                     {{ $pets->links() }}
                 </div>
             @else
+            <img src="{{ asset('images/empty.png')}}" alt="">
                 <p class="text-xl font-semibold">
-                    No Pets Found. Please add a new Pet to continue.
+                    No Products Found. Please add a new Product to continue.
                 </p>
             @endif
         </div>
